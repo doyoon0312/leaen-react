@@ -1,4 +1,6 @@
 import Card from './commponents/Card';
+import Login from './pages/Login';
+import './styles.css';
 
 function App() {
   // logic
@@ -72,7 +74,12 @@ function App() {
   return (
     <>
       {/* <div>Hello, world!</div> */}
-      <Card />
+      <div>
+        <Card />
+      </div>
+      <div className="App">
+        <Login />
+      </div>
     </>
   );
 }
