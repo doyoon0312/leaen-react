@@ -1,7 +1,6 @@
 import Card from './commponents/Card';
 import Login from './pages/Login';
 import Counter from './commponents/Counter';
-import './loginstyles.css';
 import { useState } from 'react';
 
 function App() {
@@ -83,15 +82,16 @@ function App() {
     <>
       {/* <div>Hello, world!</div> */}
       <div>
-        <Card
+        {/* <Card
           title={title}
           subText={'후츠릿 짱'}
           onCardClick={appHandleClick}
-        />
-        <Card />
+        /> */}
         {/* <Counter /> */}
       </div>
-      <div className="App">{/* <Login /> */}</div>
+      <div>
+        <Login />
+      </div>
     </>
   );
 }

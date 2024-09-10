@@ -1,7 +1,9 @@
 import React from 'react';
 
-const InputField = () => {
-  return <input type="email" placeholder="Email" className="input-field" />;
+const InputField = ({ type, placeholder }) => {
+  return (
+    <input type={type} placeholder={placeholder} className="input-field" />
+  );
 };
 
 export default InputField;
