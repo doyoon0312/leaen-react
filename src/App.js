@@ -1,6 +1,8 @@
 import Card from './commponents/Card';
 import Login from './pages/Login';
-import './styles.css';
+import Counter from './commponents/Counter';
+import './loginstyles.css';
+import { useState } from 'react';
 
 function App() {
   // logic
@@ -70,16 +72,26 @@ function App() {
 
   addStudent1();
 
+  const [title, setTitle] = useState('초기');
+
+  const appHandleClick = () => {
+    window.location.href = 'https://www.naver.com/';
+  };
+
   //view
   return (
     <>
       {/* <div>Hello, world!</div> */}
       <div>
+        <Card
+          title={title}
+          subText={'후츠릿 짱'}
+          onCardClick={appHandleClick}
+        />
         <Card />
+        {/* <Counter /> */}
       </div>
-      <div className="App">
-        <Login />
-      </div>
+      <div className="App">{/* <Login /> */}</div>
     </>
   );
 }
