@@ -1,7 +1,7 @@
 import Card from './commponents/Card';
 import Login from './pages/Login';
 import Counter from './commponents/Counter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ThemeButton from './commponents/ThemeButton';
 
 function App() {
@@ -92,6 +92,12 @@ function App() {
   const handleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
+
+  useEffect(() => {
+    alert(isDarkMode ? '다크모드' : '라이트모드');
+    console.log();
+    prompt('aa');
+  }, [isDarkMode]);
 
   //view
   return (
