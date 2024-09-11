@@ -2,6 +2,7 @@ import Card from './commponents/Card';
 import Login from './pages/Login';
 import Counter from './commponents/Counter';
 import { useState } from 'react';
+import ThemeButton from './commponents/ThemeButton';
 
 function App() {
   // logic
@@ -71,27 +72,46 @@ function App() {
 
   addStudent1();
 
-  const [title, setTitle] = useState('초기');
+  const [title, setTitle] = useState('초기값');
 
   const appHandleClick = () => {
     window.location.href = 'https://www.naver.com/';
+  };
+
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [messages, setMessages] = useState([
+    {
+      id: 1,
+      text: '첫번째 메시지',
+    },
+  ]);
+
+  const handleTheme = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   //view
   return (
     <>
       {/* <div>Hello, world!</div> */}
-      <div>
-        {/* <Card
-          title={title}
-          subText={'후츠릿 짱'}
-          onCardClick={appHandleClick}
-        /> */}
-        {/* <Counter /> */}
+      <div className={`wrap ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+        <Card title={title} subText="후츠릿 짱" onCardClick={appHandleClick} />
+        <Card title={title} subText="후츠릿 짱" onCardClick={appHandleClick} />
+        <ThemeButton isDarkMode={isDarkMode} onTheme={handleTheme} />
+
+        {/* 삼항 연산자 */}
+        {isLoggedIn ? <h2>환영합니다.</h2> : <h2>로그인해주세요</h2>}
+
+        {/* && 연산자 */}
+        {messages.length && (
+          <h2>새로운 메시지가 {messages.length}개 있습니다.</h2>
+        )}
       </div>
-      <div>
-        <Login />
-      </div>
+      <div>{/* <Counter /> */}</div>
+      <div>{/* <Login /> */}</div>
     </>
   );
 }
